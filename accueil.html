@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connexion</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+
+        html
+        {
+            scroll-behavior: smooth;/*Pour que le défilement vers une section soit doux*/
+        }
+
+        body
+        {
+            margin: 0;
+            padding: 0;
+            font-family: Times New Roman, Arial;
+            min-width: 320px;
+        }
+
+        section
+        {
+            min-height: 100vh;
+            min-height: 100svh;
+            width: 100%;
+            padding: 2em 1em;
+            display: flex;
+            flex-direction: column;/*empiler verticalement*/
+            justify-content:center;/*Centré verticalement*/
+            align-items: center;/*Centré horizontalement*/
+            background-image: url("fond.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            flex-grow: 1;
+        }
+
+        .conteneur
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(252, 247, 247, 0.25);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border-radius: 2em;
+            border: 2px solid rgba(252, 247, 247, 0.25);
+            max-width: 400px;
+            width: min(100%, 400px);
+            text-align: center;
+            padding: 0 1em;
+        }
+
+        form
+        {
+            width: 100%;
+        }
+
+        .zone
+        {
+            position: relative;
+            margin: 40px auto;
+            border-bottom: 3px solid royalblue;
+            width: 100%;
+            max-width: 20em;
+        }
+
+        .zone:hover,
+        .zone:active
+        {
+             border-bottom: 3px solid red;
+        }
+
+        .zone label /*Animation*/
+        {
+            position: absolute;
+            top: 40%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: black;
+            font-size: clamp(1em, 4vw, 1.3em);
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        input:focus + label,
+        input:valid + label
+        {
+            top: -12px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: rgb(1, 41, 158);
+        }
+
+        .zone input
+        {
+            width: 100%;
+            height: 25px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            color: rgb(0, 0, 0);
+        }
+
+        .zone ::picker-icon
+        {
+            position: absolute;
+            right: 8px;
+            color: black;
+            font-size: 1.2em;
+            top: 20px;
+        }
+
+        .btn
+        {
+            border: 2px solid royalblue;
+            background-color: royalblue;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            padding: 0.6em;
+            width: min(100%, 10em);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            color: white;
+        }
+
+        .btn:hover
+        {
+            background-color: red;
+            border-color: red;
+        }
+
+        .texte1
+        {
+            font-size: clamp(1.35em, 5vw, 2em);
+            margin: 0.5em;
+        }
+
+        .marque
+        {
+            color: blue;
+            font-size: clamp(1.2em, 6vw, 1.5em);
+        }
+
+        .marque-i
+        {
+            color: red;
+        }
+
+        .texte2
+        {
+            color: black;
+            font-weight: bold;
+            font-size: clamp(1.5em, 6vw, 2em);
+            text-decoration: underline;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .cont /*Le premier conteneur*/
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 3px double royalblue;
+            border-radius: 15px;
+            max-width: 700px;
+            width: min(100%, 700px);
+            margin-bottom: 5%;
+            opacity: 0.8;
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        .cont img
+        {
+            width: clamp(55px, 14%, 98px);
+            margin-right: 15px;
+            flex-shrink: 0;/*Pour éviter que les images se compressent*/
+        }
+
+        .sociaux
+        {
+            display: grid;
+            grid-template-columns: auto auto auto;/*diviser en trois colonnes*/
+            justify-content: center;/*centrer horizontalement*/
+            align-items: center;/*centrer horizontalement*/
+        }
+
+        .sociaux img
+        {
+            width: 30px;
+            padding: 15px;
+        }
+
+        .pied
+        {
+            background-color: royalblue;
+            text-align: center;
+            font-size: 17px;
+            font-family: Arial;
+            color: white;
+            padding: 10px;
+        }
+
+        .pied p
+        {
+            margin: 0.6em auto;
+            max-width: 95%;
+        }
+
+        @media (max-width: 600px)
+        {
+            section
+            {
+                justify-content: flex-start;
+                padding-top: 1.5em;
+            }
+
+            .cont
+            {
+                flex-direction: column;
+                margin-bottom: 1.5em;
+            }
+
+            .cont img
+            {
+                margin-right: 0;
+                margin-bottom: 0.5em;
+            }
+
+            .conteneur
+            {
+                border-radius: 1.4em;
+            }
+
+            .zone
+            {
+                margin: 32px auto;
+            }
+
+            .pied
+            {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="cont">
+            <img src="LOGO.jpg" alt="Logo de l'EMIG">
+            <h1 class="texte1">Bienvenue sur le portail captif de l'<span class="marque">EM<span class="marque-i">I</span>G</span></h1>
+        </div>
+        <div class="conteneur">
+            <form method="post" action="$PORTAL_ACTION$">
+                <p class="texte2">Authentification</p>
+                <div class="zone">
+                    <input name="auth_user" type="text" required>
+                    <label for="">Nom et Prénom</label>
+                </div>
+                <div class="zone">
+                    <input name="auth_pass" type="password" required>
+                    <label for="">Numéro matricule</label>
+                </div>
+                <!-- <div class="zone">
+                    <input name="auth_voucher" type="text">
+                    <label for="">Code de voucher</label>
+                </div> -->
+                <input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$">
+                <input name="zone" type="hidden" value="$PORTAL_ZONE$">
+                <input name="accept" type="submit" value="Se connecter" class="btn">
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="pied">
+            <p>Pour plus d'information, suivez-nous sur nos différents réseaux sociaux</p>
+            <div class="sociaux">
+                <div><img src="whatsapp.png" alt="WhatsApp"></div>
+                <div><img src="instagram.png" alt="Instagram"></div>
+                <div><img src="facebook.png" alt="Facebook"></div>
+            </div>
+            <p>copyright &copy; 2025.designed by M.B enterprise</p>
+        </div>
+    </footer>
+</body>
+</html>

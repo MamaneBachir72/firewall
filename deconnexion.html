@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page de déconnexion</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+
+        html
+        {
+            scroll-behavior: smooth;
+        }
+
+        body
+        {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            min-width: 320px;
+            min-height: 100vh;
+            min-height: 100svh;
+            background: linear-gradient(0deg, #8360c3, #2ebf91);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section
+        {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 2em 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cont
+        {
+            background-color: white;
+            border-top-left-radius: 1.5em;
+            border-bottom-right-radius: 1.5em;
+            width: min(100%, 300px);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cont img
+        {
+            margin: 1em;
+            width: min(250px, calc(100% - 2em));
+            aspect-ratio: 1 / 1;
+            border-radius: 100px;
+            flex-shrink: 0;/*Pour éviter que les images se compressent*/
+            object-fit: cover;/*Pour garder le bon cadrage malgré les disproportionnements*/
+        }
+
+        .texte
+        {
+            text-align: center;
+            font-size: clamp(1em, 4vw, 1.2em);
+            color: green;
+            font-weight: bold;
+            font-family: Arial;
+            background-color: palegreen;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn
+        {
+            background-color: royalblue;
+            border-radius: 1.5em;
+            padding: 0.8em;
+            margin-bottom: 10px;
+            border: 2px solid royalblue;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            max-width: calc(100% - 2em);
+            white-space: normal;
+        }
+
+        .btn:hover
+        {
+            background-color: red;
+            border-color: red;
+            cursor: pointer;
+        }
+
+        @media (max-width: 420px)
+        {
+            section
+            {
+                padding: 1em;
+            }
+
+            .cont
+            {
+                border-top-left-radius: 1.2em;
+                border-bottom-right-radius: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="cont">
+            <img src="user.png" alt="Utilisateur connecté">
+            <div class="texte">Vous êtes en ligne</div>
+            <form method="post" action="$PORTAL_LOGOUT_URL$">
+                <input type="submit" value="Se déconnecter" class="btn">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
